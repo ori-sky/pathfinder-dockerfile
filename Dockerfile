@@ -8,5 +8,5 @@ RUN cd /var/www/html && composer install --prefer-dist --no-interaction
 ENV PATHFINDER_URI www.example.com
 ENV PATHFINDER_DB_PASS changeme
 
-RUN sed -i 's/server_name .*;$/server_name ${PATHFINDER_URI}/' /etc/nginx/sites-enabled/pathfinder.nginx.conf
-RUN sed -i 's/^DB_PF_PASS.*$/DB_PF_PASS = ${PATHFINDER_DB_PASS}/' /var/www/html/app/environment.ini
+RUN sed -i 's/server_name .*;$/server_name '"${PATHFINDER_URI}"'/' /etc/nginx/sites-enabled/pathfinder.nginx.conf
+RUN sed -i 's/^DB_PF_PASS.*$/DB_PF_PASS = '"${PATHFINDER_DB_PASS}"'/' /var/www/html/app/environment.ini
