@@ -12,4 +12,4 @@ RUN cd /var/www/html && composer install --prefer-dist --no-interaction
 #RUN sed -i 's/^DB_PF_PASS.*$/DB_PF_PASS = '"${PATHFINDER_DB_PASS}"'/' /var/www/html/app/environment.ini
 
 RUN apk add ruby ruby-dev nodejs npm
-RUN gem install compass
+RUN gem install compass --no-document
